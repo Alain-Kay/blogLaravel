@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3 class="text-center my-5">Connexion</h3>
+    <h3 class="text-center my-5">{{'Connexion'}}</h3>
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <div class="card">
@@ -47,7 +47,7 @@
                                 </button>
                                
                                     <a class="btn btn-link" href="{{ route('register') }}">
-                                        Pas encore inscrit ?
+                                        {{'Pas encore inscrit ?'}}
                                     </a>
                             </div>
                         </div>
