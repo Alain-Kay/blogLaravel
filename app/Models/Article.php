@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
+
+    public function dateFormat()
+    {
+        return date_format($this->created_at, 'd-M-Y H:i');
+    }
 }

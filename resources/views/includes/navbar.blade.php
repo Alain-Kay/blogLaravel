@@ -18,6 +18,9 @@
         </ul>
 
         @if (Auth::user())
+          @if (Auth::user()->role == 'ADMIN')
+                <a class="nav-link" href="{{ route('articles.index')}}">Espace Admin</a>
+          @endif
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
              <form action="{{ route('logout')}}" method="post">
