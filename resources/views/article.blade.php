@@ -6,14 +6,14 @@
         <div class="d-flex justify-content-center my-5">
             <a class="btn btn-primary" href="{{ route('articles') }}">
                 <i class="fas fa-arrow-left"></i>
-                Retour
+                {{'Retour'}}
             </a>
         </div>
         <h5 class="text-center my-3 pt-3">{{ $article->subtitle }}</h5>
     </div>
     <div class="container">
         <p class="text-center">
-            {{ $article->content }}
+            {!! $article->content !!}
         </p>
     </div>
 @endsection

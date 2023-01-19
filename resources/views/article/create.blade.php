@@ -16,9 +16,16 @@
                 <small class="form-text text-muted mt-2">Décrivrez le contenu de votre article</small>
             </div>
             <div class="col-12">
-                <div class="form-group">
+                <div class="form-group mt-4">
                     <label for="content">Contenu</label>
-                    <textarea name="content" id="content" class="form-control w-100"></textarea>
+                    <textarea name="content" id="tinycme-editor" class="form-control w-100"></textarea>
+
+                    <script>
+                        tinymce.init({
+                          selector: '#tinycme-editor'
+                        });
+                    </script>
+
                     <div class="d-flex justify-content-center mb-6">
                         <button type="submit" class="btn btn-primary mt-3">Poster l'article</button>
 
