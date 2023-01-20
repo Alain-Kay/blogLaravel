@@ -23,7 +23,11 @@
                         <td>{{ $article->dateFormat()}}</td>
                         <td class="d-flex">
                             <a href="#" class="btn btn-warning mx-3">Editer</a>
-                            <a href="#" class="btn btn-danger mx-3">Supprimer</a>
+                            <form action="{{ route('articles.delete', $article->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
