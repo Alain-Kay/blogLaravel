@@ -8,17 +8,26 @@
             @csrf
             <div class="col-12">
                 <label for="title">TITRE</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="Le titre de votre article">
+                <input type="text" name="title" id="title" class="form-control @error ('title') is-invalid @enderror" placeholder="Le titre de votre article">
+                @error('title')
+                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col-12 mt-4">
                 <label for="subtitle">SOUS-TITRE</label>
-                <input type="text" name="subtitle" id="subtitle" class="form-control" placeholder="Le sous-titre de votre article">
+                <input type="text" name="subtitle" id="subtitle" class="form-control @error ('subtitle') is-invalid @enderror" placeholder="Le sous-titre de votre article">
+                @error('subtitle')
+                    <div class="alert alert-danger m-2">{{ $message }}</div>
+                @enderror
                 <small class="form-text text-muted mt-2">Décrivrez le contenu de votre article</small>
             </div>
             <div class="col-12">
                 <div class="form-group mt-4">
                     <label for="content">Contenu</label>
-                    <textarea name="content" id="tinycme-editor" class="form-control w-100"></textarea>
+                    <textarea name="content" id="tinycme-editor" class="form-control w-100 @error ('content') is-invalid @enderror"></textarea>
+                    @error('content')
+                         <div class="alert alert-danger m-2">{{ $message }}</div>
+                    @enderror
 
                     <script>
                         tinymce.init({
