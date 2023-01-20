@@ -16,6 +16,11 @@
   </head>
   <body>
     @include('includes.navbar')
+
+    <div class="container justify-content-center mt-3">
+        @include('includes.flash')
+
+    </div>
     
     @yield('content')
 
