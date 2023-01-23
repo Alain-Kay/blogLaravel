@@ -23,10 +23,31 @@
                         <td>{{ $article->dateFormat()}}</td>
                         <td class="d-flex">
                             <a href="#" class="btn btn-warning mx-3">Editer</a>
+                            <button type="button" class="btn btn-danger" onclick="document.getElementById('model-open-{{$article->id}}').style.display='block'">Supprimer</button>
                             <form action="{{ route('articles.delete', $article->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
+
+                                <div class="modal" id="model-open-{{$article->id}}">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title">La suppression d'un élément est difinitive</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="document.getElementById('model-open').style.display='none'" aria-label="Close">
+                                            <span aria-hidden="true"></span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Etes-vous sur de vouloir supprimer cet élément ? </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="submit" class="btn btn-primary">Oui</button>
+                                          <button type="button" class="btn btn-secondary" onclick="document.getElementById('model-open-{{$article->id}}').style.display='none'" data-bs-dismiss="modal">Annuler</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                
                             </form>
                         </td>
                     </tr>
