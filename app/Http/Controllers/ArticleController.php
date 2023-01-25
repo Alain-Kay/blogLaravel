@@ -67,9 +67,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view('article.edit',[
+            'article' => $article
+        ]);
     }
 
     /**
@@ -79,9 +81,14 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticleResquest $request, Article $article)
     {
-        //
+        $article->title = $request->input('title');
+        $article->subtitle = $request->input('subtitle');
+        $article->content = $request->input('content');
+        $article->save();
+        
+        return redirect()->route('articles.index')->with('success', "L'article a bien été modifié");
     }
 
     /**
