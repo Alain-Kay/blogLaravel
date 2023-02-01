@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Models\Article;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +22,11 @@ Route::get('/', [MainController::class, 'home'])->name('home');
 
 Route::get('/articles', [MainController::class, 'index'])->name('articles');
 Route::get('/articles/{article:slug}', [MainController::class, 'show'])->name('article');
+
 Auth::routes();
 
-Route::get('/admin/articles', [ArticleController::class, 'index'])->middleware('admin')->name('articles.index');
-Route::get('/admin/articles/create', [ArticleController::class, 'create'])->middleware('admin')->name('articles.create');
-Route::post('/admin/articles/store', [ArticleController::class, 'store'])->middleware('admin')->name('articles.store');
-
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::resource('articles', ArticleController::class);
+});
 
 
