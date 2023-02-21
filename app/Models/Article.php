@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
@@ -14,11 +15,17 @@ class Article extends Model
      [
          'title', 
          'subtitle', 
-         'content'
+         'content',
+         'category_id'
     ];
 
     public function dateFormat()
     {
         return date_format($this->created_at, 'd-M-Y H:i');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

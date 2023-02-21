@@ -10,12 +10,14 @@
                    <div class="card my-3">
                        <div class="card-body">
                            <h5 class="card-title">{{$article->title}}</h5>
+                           <span class="badge bg-primary">{{ $article->category->label}}</span>
                            <p class="card-text">{{$article->subtitle}}</p>
                            <a href="{{ route('article', $article->slug) }}" class="btn btn-primary">
                                <i class="fas fa-arrow-right"></i>
                                Lire la suite
                            </a>
                        </div>
+                       
 
                    </div>
                </div>

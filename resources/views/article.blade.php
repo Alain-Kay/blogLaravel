@@ -10,6 +10,9 @@
             </a>
         </div>
         <h5 class="text-center my-3 pt-3">{{ $article->subtitle }}</h5>
+        <div class="d-flex justify-content-center"> 
+            <span class="badge bg-primary">{{ $article->category->label}}</span>
+        </div>
     </div>
     <div class="container">
         <p class="text-center">
