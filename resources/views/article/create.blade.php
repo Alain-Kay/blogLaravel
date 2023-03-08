@@ -22,6 +22,16 @@
                 <small class="form-text text-muted mt-2">Décrivrez le contenu de votre article</small>
             </div>
             <div class="col-12">
+                <div class="form-group">
+                    <label for="category">Categories</label>
+                    <select name="category" class="form-control">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->label }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="col-12">
                 <div class="form-group mt-4">
                     <label for="content">Contenu</label>
                     <textarea name="content" id="tinycme-editor" class="form-control w-100 @error ('content') is-invalid @enderror">

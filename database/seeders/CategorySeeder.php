@@ -14,13 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $categories = ['sport', 'Informatique', 'Science', 'Physique'];
-
-        for ($i=0; $i < count($categories) ; $i++) { 
-           
-            Category::create([
-                'label' => $categories[$i],
-           ]);
-        }  
+        \App\Models\Category::factory(6)->create();
     }
 }
+
+?>
