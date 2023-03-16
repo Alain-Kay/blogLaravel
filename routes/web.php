@@ -20,6 +20,7 @@ use App\Models\Article;
 
 Route::get('/', [MainController::class, 'home'])->name('home');
 
+Route::get('/about', [MainController::class, 'about'])->name('about');
 Route::get('/articles', [MainController::class, 'index'])->name('articles');
 Route::get('/articles/{article:slug}', [MainController::class, 'show'])->name('article');
 

@@ -11,7 +11,8 @@
         </div>
         <h5 class="text-center my-3 pt-3">{{ $article->subtitle }}</h5>
         <div class="d-flex justify-content-center"> 
-            <span class="badge bg-primary">{{ $article->category->label}}</span>
+            <span class="badge bg-primary">{{ $article->category->label}}</span><br>
+            {{-- <i class="fa-solid fa-{{$article->category->icon}}"></i> --}}
         </div>
     </div>
     <div class="container">
